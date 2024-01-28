@@ -1,7 +1,7 @@
 {
   "name": "nested-querystring",
   "description": "A small utility to create nested query strings",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "James Garbutt (https://github.com/43081j)",
   "files": [
     "dist/**/*.js",
