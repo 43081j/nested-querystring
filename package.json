@@ -37,7 +37,7 @@
     "prepare": "tshy",
     "lint": "npm run lint:js && npm run format:check",
     "lint:js": "eslint \"src/**/*.ts\"",
-    "build": "tsc",
+    "build": "tsc --noEmit",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "node --test"
