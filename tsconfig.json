@@ -5,7 +5,7 @@
     "moduleResolution": "nodenext",
     "types": ["node"],
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

@@ -4,8 +4,10 @@
   "version": "0.0.1",
   "author": "James Garbutt (https://github.com/43081j)",
   "files": [
-    "lib/**/*.js",
-    "!lib/test"
+    "dist/**/*.js",
+    "!/dist/node_modules",
+    "!/dist/esm/test",
+    "!/dist/commonjs/test"
   ],
   "bugs": {
     "url": "https://github.com/43081j/nested-querystring/issues"
@@ -16,6 +18,7 @@
     "eslint": "^8.56.0",
     "eslint-config-google": "^0.14.0",
     "prettier": "^3.2.4",
+    "tshy": "^1.11.0",
     "typescript": "^5.3.3"
   },
   "homepage": "https://github.com/43081j/nested-querystring",
@@ -26,17 +29,39 @@
     "stringify"
   ],
   "license": "MIT",
-  "main": "lib/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/43081j/nested-querystring.git"
   },
   "scripts": {
+    "prepare": "tshy",
     "lint": "npm run lint:js && npm run format:check",
     "lint:js": "eslint \"src/**/*.ts\"",
     "build": "tsc",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "node --test"
-  }
+  },
+  "tshy": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./src/main.ts"
+    }
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/main.d.ts",
+        "default": "./dist/esm/main.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/main.d.ts",
+        "default": "./dist/commonjs/main.js"
+      }
+    }
+  },
+  "type": "module",
+  "main": "./dist/commonjs/main.js",
+  "types": "./dist/commonjs/main.d.ts"
 }
