@@ -1,14 +1,14 @@
 {
-  "name": "qs-stringify",
-  "description": "Simple query stringify with nesting.",
-  "version": "1.2.1",
-  "author": "Renée Kooi <renee@kooi.me>",
+  "name": "nested-querystring",
+  "description": "A small utility to create nested query strings",
+  "version": "0.0.1",
+  "author": "James Garbutt (https://github.com/43081j)",
   "files": [
     "lib/**/*.js",
     "!lib/test"
   ],
   "bugs": {
-    "url": "https://github.com/goto-bus-stop/qs-stringify/issues"
+    "url": "https://github.com/43081j/nested-querystring/issues"
   },
   "devDependencies": {
     "@types/node": "^20.11.8",
@@ -18,7 +18,7 @@
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
   },
-  "homepage": "https://github.com/goto-bus-stop/qs-stringify",
+  "homepage": "https://github.com/43081j/nested-querystring",
   "keywords": [
     "format",
     "qs",
@@ -29,7 +29,7 @@
   "main": "lib/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/goto-bus-stop/qs-stringify.git"
+    "url": "https://github.com/43081j/nested-querystring.git"
   },
   "scripts": {
     "lint": "npm run lint:js && npm run format:check",

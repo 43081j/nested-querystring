@@ -1,11 +1,45 @@
 import * as assert from 'node:assert/strict';
 import {test} from 'node:test';
-import {queryStringify} from '../main.js';
+import {stringify, create} from '../main.js';
 
-test('queryStringify', async (t) => {
+test('create', async (t) => {
+  await t.test('simple objects', () => {
+    assert.deepEqual(
+      [
+        ...create({
+          a: 1,
+          b: 2
+        })
+      ],
+      [
+        ['a', '1'],
+        ['b', '2']
+      ]
+    );
+  });
+
+  await t.test('nested objects', () => {
+    assert.deepEqual(
+      [
+        ...create({
+          nested: {
+            a: {
+              b: {
+                c: 'd'
+              }
+            }
+          }
+        })
+      ],
+      [['nested[a][b][c]', 'd']]
+    );
+  });
+});
+
+test('stringify', async (t) => {
   await t.test('stringify simple objects', () => {
     assert.equal(
-      queryStringify({
+      stringify({
         a: 1,
         b: 2
       }),
@@ -15,7 +49,7 @@ test('queryStringify', async (t) => {
 
   await t.test('nested objects using [xyz] syntax', () => {
     assert.equal(
-      queryStringify({
+      stringify({
         nested: {
           a: {
             b: {
@@ -30,7 +64,7 @@ test('queryStringify', async (t) => {
 
   await t.test('URL encoding', () => {
     assert.equal(
-      queryStringify({
+      stringify({
         'key&value': 'key=value'
       }),
       'key%26value=key%3Dvalue'
@@ -39,7 +73,7 @@ test('queryStringify', async (t) => {
 
   await t.test('encoded arrays', () => {
     assert.equal(
-      queryStringify({
+      stringify({
         object: {
           xyz: 'hello'
         },

@@ -35,12 +35,21 @@ function appendValuesToQuery(
  * Stringify an object for use in a query string.
  *
  * @param {object} obj Object to stringify
- * @param {string} prefix When nesting, the parent key. keys in `obj` will be
- * stringified as `prefix[key]`.
  * @return {string}
  */
-export function queryStringify(obj: object, prefix?: string): string {
+export function stringify(obj: object): string {
+  return create(obj).toString();
+}
+
+/**
+ * Creates a URLSearchParams for a given object, taking nested keys
+ * into account
+ *
+ * @param {object} obj Object to retrieve keys from
+ * @return {URLSearchParams}
+ */
+export function create(obj: object): URLSearchParams {
   const params = new URLSearchParams();
-  appendValuesToQuery(params, obj, prefix);
-  return params.toString();
+  appendValuesToQuery(params, obj);
+  return params;
 }
