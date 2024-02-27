@@ -5,12 +5,13 @@
   "author": "James Garbutt (https://github.com/43081j)",
   "files": [
     "dist/**/*.js",
+    "dist/**/*.d.ts",
     "!/dist/node_modules",
     "!/dist/esm/test",
     "!/dist/commonjs/test"
   ],
   "bugs": {
-    "url": "https://github.com/43081j/nested-querystring/issues"
+    "url": "https://github.com/es-tooling/nested-querystring/issues"
   },
   "devDependencies": {
     "@types/node": "^20.11.8",
@@ -21,7 +22,7 @@
     "tshy": "^1.11.0",
     "typescript": "^5.3.3"
   },
-  "homepage": "https://github.com/43081j/nested-querystring",
+  "homepage": "https://github.com/es-tooling/nested-querystring",
   "keywords": [
     "format",
     "qs",
@@ -31,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/43081j/nested-querystring.git"
+    "url": "git+https://github.com/es-tooling/nested-querystring.git"
   },
   "scripts": {
     "prepare": "tshy",
